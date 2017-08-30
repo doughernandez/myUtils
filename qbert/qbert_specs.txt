@@ -1,0 +1,33 @@
+QueueBert
+
+1. A blockchain-backed messaging queue
+	a. Mining Nodes may be:
+		i.   subscriber
+		ii.  publisher
+		iii. both
+	b. Greater costs may be incurred via special parameters
+	c. Every mining Node is a Client, but not every Client is a mining Node.
+
+2. Queues are accessible as directories, complete with subqueues
+	a. http://qbert.example-server.com/queue-n/subqueue-n/...
+	b. every queue can contain subqueues as well as a message queue
+	c. every subqueue is a queue
+	d. a qbert Client may request:
+		i.   subscriber
+			a> retrieve the latest message from a queue
+			b> accept a message from a queue, by id
+				1> issues receipt
+		ii.  publisher
+			a> publish a message to a queue (get the id)
+			b> request a receipt for a message by id
+		iii. both
+			a> list of subqueues
+			b> get queue status
+
+3. server rebuilds from blockchain on restart
+	a. defined from peers (mining Nodes)
+	b. the blockchain is the system of record for the qbert server
+		i. all disk space usage is temporary
+
+4. The MQ service may be Closed and fully Audited
+	a. qbert will produce a transaction history
